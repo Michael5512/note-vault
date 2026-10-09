@@ -16,7 +16,7 @@ const RPC_URL = "https://rpc.testnet.chain.robinhood.com";
 
 // --- Confirmed testnet addresses (from the Addresses page) ---
 const AAPL_TOKEN = "0x49a6d7470694FB1D9621cA4A5215704588A87BB"; // AAPL Stock Token (mock)
-const AAPL_FEED = "0x816D092d62D71A1E24E1e225a583f6FFF5978CdFE5"; // AAPL feed (mock) — double-check this one, it's long; re-copy from the Addresses page if the deploy reverts on an invalid feed address
+const AAPL_FEED = "0x816D92d62D7A1E24E1e225a583f6FFF5978CdFE5"; // AAPL feed (mock)
 
 async function main() {
   const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
