@@ -16,7 +16,7 @@ const CONFIG = {
   shareDecimals: 18,
   // Leave empty to auto-discover the first vault via note.factory.list().
   // Fill in once you've deployed your own vault (see scripts/deploy-vault.ts).
-  vaultAddress: "", // e.g. "0x..." — your deployed vault from scripts/deploy-vault.ts
+  vaultAddress: "0x590502a29d35ac73D2a10ce962D7a5F5A02e65DC",
   // Must match the label you used in scripts/deploy-vault.ts's partners[0].id,
   // e.g. partnerId("myke.partner") — set to null for untagged deposits (no fee share).
   partnerLabel: "myke.partner",
