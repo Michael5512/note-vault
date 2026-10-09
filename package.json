@@ -1,0 +1,21 @@
+{
+  "name": "note-systems-vault-embed",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Minimal vault-embed for Note Systems Build (testnet), plus a one-time deploy script for your own vault.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy-vault": "tsx scripts/deploy-vault.ts"
+  },
+  "dependencies": {
+    "viem": "latest",
+    "@note-systems/sdk": "https://note.systems/sdk/note-systems-sdk-0.1.2.tgz"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "tsx": "^4.0.0"
+  }
+}
