@@ -101,7 +101,7 @@ async function connectWallet() {
     await ensureNetwork();
 
     const publicClient = createPublicClient({ chain: robinhoodTestnet, transport: http(CONFIG.rpcUrl) });
-    const walletClient = createWalletClient({ chain: robinhoodTestnet, transport: custom(window.ethereum) });
+    const walletClient = createWalletClient({ chain: robinhoodTestnet, transport: custom(window.ethereum), account: state.address });
     state.note = await createNoteClient({ publicClient, walletClient });
 
     // Resolve the vault: configured address, or auto-discover the
@@ -167,7 +167,12 @@ async function handleDeposit() {
       ...(partnerId ? { partnerId } : {}),
     });
 
-    setStatus(`Deposit confirmed — ${formatUnits(d.result.shares, CONFIG.shareDecimals)} shares, tagged: ${d.result.tagged}.`, "success");
+    console.log("deposit result:", d);
+    const shares = d?.result?.shares;
+    const tagged = d?.result?.tagged;
+    const sharesText = typeof shares === "bigint" ? `${formatUnits(shares, CONFIG.shareDecimals)} shares` : "deposit confirmed";
+    const taggedText = typeof tagged === "boolean" ? `, tagged: ${tagged}` : "";
+    setStatus(`${sharesText}${taggedText}. (tx: ${d?.hash ?? "?"})`, "success");
   } catch (err) {
     setStatus(decodeError(err), "error");
   } finally {
